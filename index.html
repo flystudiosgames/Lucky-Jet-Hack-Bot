@@ -9,20 +9,20 @@
     <link href="https://fonts.googleapis.com/css2?family=Roboto+Condensed:wght@700&display=swap" rel="stylesheet">
     <style>
         body {
-            background-color: #171b24; /* Fundalul ca în Home.html */
+            background-color: #171b24;
             margin: 0;
             height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
+            color: #FFFFFF;
             font-family: 'Roboto Condensed', sans-serif;
             font-weight: bold;
-            color: #FFFFFF;
         }
 
         .container {
-            background-color: rgba(30, 34, 42, 0.9); /* Card background ca în Home.html */
-            border-radius: 10px;
+            background-color: #1e222a;
+            border-radius: 25px;
             padding: 20px;
             display: flex;
             justify-content: center;
@@ -31,11 +31,10 @@
             max-width: 100%;
             flex-direction: column;
             text-align: center;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); /* Shadow ca în Home.html */
         }
 
         .btn-success-custom {
-            margin: 10px 0;
+            margin: 5px 0;
             font-family: 'Roboto Condensed', sans-serif;
             font-weight: bold;
             text-transform: uppercase;
@@ -43,29 +42,42 @@
             width: 100%;
             height: 50px;
             font-size: 1.2em;
-            background-color: #28a745; /* Butonul verde ca în Home.html */
-            border-radius: 25px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Shadow buton ca în Home.html */
-            transition: background-color 0.3s, transform 0.3s;
+            transition: transform 0.3s ease-in-out;
+            box-shadow: 0 0 15px rgba(22, 25, 31, 0.7);
         }
 
-        .btn-success-custom:hover {
-            background-color: #218838; /* Hover efect ca în Home.html */
-            transform: translateY(-5px);
+        .btn-success-custom.click-animation {
+            animation: press 0.5s;
         }
 
         .btn-success-custom.bouncing {
-            background-color: #28a745; /* Culoare galbenă pentru butonul care face bouncing */
-            animation: bounce 2s infinite;
+            animation: bounce 1s infinite;
+        }
+
+        @keyframes press {
+            0%,
+            100% {
+                transform: scale(1);
+            }
+
+            50% {
+                transform: scale(0.9);
+            }
         }
 
         @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
+            0%,
+            20%,
+            50%,
+            80%,
+            100% {
                 transform: translateY(0);
             }
+
             40% {
                 transform: translateY(-10px);
             }
+
             60% {
                 transform: translateY(-5px);
             }
@@ -84,7 +96,9 @@
         .blue-text {
             color: #1E90FF;
         }
-
+    .white-text {
+            color: #ffffff;
+        }
         .green-text {
             color: #70FA00;
         }
@@ -93,20 +107,8 @@
             color: #ff4b4b;
         }
 
-        .modal-content {
-            height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            background-color: #171b24; /* Fundalul modalului */
-            border-radius: 0;
-        }
-
-        .modal-body {
-            padding: 10px;
-            flex: 1;
-            display: flex;
-            flex-direction: column;
+        .hidden {
+            display: none;
         }
 
         .progress {
@@ -121,6 +123,22 @@
             width: 0;
             height: 10;
             transition: width 1s ease-in;
+        }
+
+        .modal-content {
+            height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            background-color: #090F1E;
+            border-radius: 0;
+        }
+
+        .modal-body {
+            padding: 10px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
         }
 
         .terminal {
@@ -155,6 +173,15 @@
             display: flex;
             justify-content: center;
             width: 100%;
+        }
+
+        #openProfileButton {
+            width: 100%;
+            font-family: 'Roboto Condensed', sans-serif;
+            font-weight: bold;
+            text-transform: uppercase;
+            pointer-events: none;
+            opacity: 0.5;
         }
 
         #panel1,
@@ -234,6 +261,10 @@
             transform: translateX(-50%);
             z-index: 1000;
         }
+
+        .group-container {
+            margin-top: -30px;
+        }
     </style>
 </head>
 
@@ -244,11 +275,10 @@
             <p>FLY WIN HACK BOT  v5.4.2</p>
         </div>
         <div class="text-content">
-            <p class="blue-text">Бывший программист, который работал в <span class="blue-text">1</span><span class="blue-text">Win</span> взломав серверы !</p>
+            <p class="red-text">Бывший программист, который работал в 1Win взломав серверы !</p>
             <p>Бот создаст уникальный ID и внедрит его в систему <span class="blue-text">1</span>Win через специальную ссылку. Это даст вам доступ к заработку на взломанных серверах <span class="blue-text">1</span>Win</p>
         </div>
         <button type="button" class="btn btn-success btn-success-custom bouncing" data-bs-toggle="modal" data-bs-target="#launchBotModal">Начинать взлом сейчас</button>
-        <div class="text-content"></div>
     </div>
 
     <!-- Panel 2 -->
@@ -272,10 +302,12 @@
                 </label>
                 <span id="switchText" class="switch-label"><span class="red-text">5.</span> Я зарегистрировался и ввел промокод <span class="yellow-text">FLYWINCASH</span> по ссылке, созданной алгоритмом.</span>
             </div>
+
         </div>
         <p></p>
         <button type="button" id="openHackBotButton" class="btn btn-success btn-success-custom" onclick="window.location.href='Home.html'" disabled>➡️Запустить Бот⬅️</button>
     </div>
+
 
     <div id="notification" class="notification">
         Промокод <span class="yellow-text">FLYWINCASH</span> был скопирован!

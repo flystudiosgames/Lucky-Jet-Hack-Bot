@@ -74,29 +74,10 @@
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             transition: background-color 0.3s, transform 0.3s;
         }
-
         .btn-success-custom:hover {
             background-color: #218838;
             transform: translateY(-5px);
         }
-        .btn-success-custom.bouncing {
-            background-color: #FFD700;
-            animation: bounce 2s infinite;
-            margin: 45px 0;
-        }
-
-        @keyframes bounce {
-            0%, 20%, 50%, 80%, 100% {
-                transform: translateY(0);
-            }
-            40% {
-                transform: translateY(-10px);
-            }
-            60% {
-                transform: translateY(-5px);
-            }
-        }
-
         .onlinetranzactiontext {
             background: rgba(30, 34, 42, 0.8);
             width: 100%;
@@ -110,14 +91,6 @@
             color: #fff;
             font-size: 1em;
             margin-bottom: 20px;
-        }
-        .text-content {
-            text-align: center;
-            color: #ffffff;
-            margin-bottom: 3px;
-        }
-        .text-content p {
-            margin: 2px 0;
         }
         .transferHystory {
             background: rgba(30, 34, 42, 0.9);
@@ -163,13 +136,11 @@
                 <p>⬇️ Выберите LUCKY JET и зарабатывайте ⬇️</p>
             </div>
             <button type="button" class="btn btn-success btn-success-custom" id="luckyJetButton" onclick="window.location.href='LuckyJet.html'">🚀 Lucky Jet 🚀</button>
-
         </div>
         <!-- Transfer History Container -->
         <div class="onlinetranzactiontext">
             <div class="history-title">Онлайн Tранзакции</div>
         </div>
-        
         <div class="transferHystory">
             <!-- Dynamic content will be added here -->
         </div>
@@ -194,7 +165,7 @@
 
             function createHistoryItem(id, amount) {
                 const historyItem = document.createElement('div');
-                historyItem.classList.add('history-item', 'fade-in');
+                historyItem.classList.add('history-item');
 
                 const idElement = document.createElement('div');
                 idElement.textContent = `User ID: ${id}****`;
